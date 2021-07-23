@@ -1,23 +1,20 @@
 //
-//  JSONToMappableCommand.swift
+//  JSONToImmutableMappableCommand.swift
 //  MappingCoderExtension
 //
-//  Created by Wang Guanyu on 2021/7/19.
+//  Created by Wang Guanyu on 2021/7/22.
 //
 
 import Foundation
 import XcodeKit
 
-let domain = "com.wgy.MappingCoder.error"
+class JSONToImmutableMappableCommand: NSObject,
+                                      XCSourceEditorCommand {
 
-class JSONToMappableCommand: NSObject, XCSourceEditorCommand {
-    
     func perform(
         with invocation: XCSourceEditorCommandInvocation,
         completionHandler: @escaping (Error?) -> Void
-    ) -> Void {
-        // Implement your command here, invoking the completion handler when done. Pass it nil on success, and an NSError on failure.
-
+    ) {
         invocation.buffer.trimSelectionsTail()
 
         guard let json = json(from: invocation.buffer) else {
@@ -46,13 +43,12 @@ Please select JSON from source editor and try again. 🚨
                 json: json,
                 to: .class, // TODO: support config
                 in: invocation.buffer,
-                conformTo: .mappable
+                conformTo: .immutableMappable
             )
         } catch let error {
             completionHandler(error)
         }
-        
+
         completionHandler(nil)
     }
-    
 }

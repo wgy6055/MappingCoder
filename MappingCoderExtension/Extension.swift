@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import XcodeKit
 
 extension String {
 
@@ -41,5 +42,35 @@ extension String {
             return nil
         }
         return (try? JSONSerialization.jsonObject(with: data)) as? [String : Any]
+    }
+}
+
+extension NSNumber {
+
+    var valueType: String {
+        if type(of: self) == type(of: NSNumber(value: true)) {
+            return "Bool"
+        } else if self is Int {
+            return "Int"
+        } else {
+            return "Double"
+        }
+    }
+}
+
+extension XCSourceTextBuffer {
+
+    /// {line: x, column: 0} -> {line: x - 1, column: y},
+    /// to convert selctions (start ..< end) into (start...end-1),
+    /// so we can walk through selections conveniently
+    func trimSelectionsTail() {
+        selections.forEach { selection in
+            guard let range = selection as? XCSourceTextRange,
+                  range.end.column == 0,
+                  let previousLine = lines[range.end.line - 1] as? String else {
+                return
+            }
+            range.end = XCSourceTextPosition(line: range.end.line - 1, column: previousLine.count)
+        }
     }
 }
