@@ -65,7 +65,8 @@ func commentSelectios(in buffer: XCSourceTextBuffer) {
 
     let selections = buffer.selections
     selections.forEach { selection in
-        guard let range = selection as? XCSourceTextRange else {
+        guard let range = selection as? XCSourceTextRange,
+              range.start.line <= range.end.line else {
             return
         }
         for i in (range.start.line...range.end.line) {
@@ -82,8 +83,9 @@ func convert(
     json: [String : Any],
     to modelType: ModelType,
     in buffer: XCSourceTextBuffer,
+    at startLine: Int,
     conformTo protocolType: ProtocolType
-) throws {
+) {
 
     let fileIndent = Indentation(
         useTabs: buffer.usesTabsForIndentation,
@@ -96,14 +98,15 @@ func convert(
     lines.append("\(modelType) <#name#" + ">: \(protocolType) {")
     lines.append("")
 
-    lines += json.map {
+    let properties = json.map {
         PropertyDeclaration(
             name: $0, // TODO: camelCase
             jsonValue: $1,
             keyword: protocolType == .mappable ? .var : .let,
             isOptional: false // TODO: support config
         )
-    }.sorted { $0.name < $1.name }.map { "\(classIndent)\($0)" }
+    }.sorted { $0.name < $1.name }
+    lines += properties.map { "\(classIndent)\($0)" }
     lines.append("")
 
     if protocolType == .mappable {
@@ -129,11 +132,19 @@ func convert(
 
     lines.append("}")
 
-    guard let selectionTrail = buffer.selections.lastObject as? XCSourceTextRange else {
-        throw NSError(domain: domain, code: -1, userInfo: nil)
-    }
-    let codeStartLine = selectionTrail.end.line + 1
     lines.reversed().forEach {
-        buffer.lines.insert($0, at: codeStartLine)
+        buffer.lines.insert($0, at: startLine)
+    }
+
+    // convert nested JSONs
+    let nestedJSONs = properties.compactMap { $0.nestedJSONValue }
+    nestedJSONs.forEach {
+        convert(
+            json: $0,
+            to: modelType,
+            in: buffer,
+            at: startLine + lines.count,
+            conformTo: protocolType
+        )
     }
 }

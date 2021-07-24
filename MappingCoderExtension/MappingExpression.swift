@@ -10,8 +10,8 @@ import Foundation
 struct MappingExpression {
 
     let name: String
-    let `operator`: String
-    let key: String
+    private let `operator`: String
+    private let key: String
 
     init(name: String, key: String, protocolType: ProtocolType) {
         self.name = name

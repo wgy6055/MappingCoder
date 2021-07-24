@@ -10,8 +10,14 @@ import Foundation
 struct TryMapValueExpression {
 
     let name: String
-    let key: String
-    let isOptional: Bool
+    private let key: String
+    private let isOptional: Bool
+
+    init(name: String, key: String, isOptional: Bool) {
+        self.name = name
+        self.key = key
+        self.isOptional = isOptional
+    }
 }
 
 extension TryMapValueExpression: CustomStringConvertible {

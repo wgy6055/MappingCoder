@@ -23,11 +23,7 @@ class JSONToImmutableMappableCommand: NSObject,
                     domain: domain,
                     code: -1,
                     userInfo: [
-                        NSLocalizedDescriptionKey :
-"""
-Fail to parse JSON.\
-Please select JSON from source editor and try again. 🚨
-"""
+                        NSLocalizedDescriptionKey : paseJSONFailed
                     ]
                 )
             )
@@ -38,16 +34,19 @@ Please select JSON from source editor and try again. 🚨
             return
         }
         commentSelectios(in: invocation.buffer)
-        do {
-            try convert(
-                json: json,
-                to: .class, // TODO: support config
-                in: invocation.buffer,
-                conformTo: .immutableMappable
-            )
-        } catch let error {
-            completionHandler(error)
+
+        guard let selectionTrail = invocation.buffer.selections.lastObject as? XCSourceTextRange else {
+            completionHandler(NSError(domain: domain, code: -1, userInfo: nil))
+            return
         }
+        let startLine = selectionTrail.end.line + 1
+        convert(
+            json: json,
+            to: .class, // TODO: support config
+            in: invocation.buffer,
+            at: startLine,
+            conformTo: .immutableMappable
+        )
 
         completionHandler(nil)
     }

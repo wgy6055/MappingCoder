@@ -8,8 +8,6 @@
 import Foundation
 import XcodeKit
 
-let domain = "com.wgy.MappingCoder.error"
-
 class JSONToMappableCommand: NSObject, XCSourceEditorCommand {
     
     func perform(
@@ -26,11 +24,7 @@ class JSONToMappableCommand: NSObject, XCSourceEditorCommand {
                     domain: domain,
                     code: -1,
                     userInfo: [
-                        NSLocalizedDescriptionKey :
-"""
-Fail to parse JSON.\
-Please select JSON from source editor and try again. 🚨
-"""
+                        NSLocalizedDescriptionKey : paseJSONFailed
                     ]
                 )
             )
@@ -41,16 +35,19 @@ Please select JSON from source editor and try again. 🚨
             return
         }
         commentSelectios(in: invocation.buffer)
-        do {
-            try convert(
-                json: json,
-                to: .class, // TODO: support config
-                in: invocation.buffer,
-                conformTo: .mappable
-            )
-        } catch let error {
-            completionHandler(error)
+
+        guard let selectionTrail = invocation.buffer.selections.lastObject as? XCSourceTextRange else {
+            completionHandler(NSError(domain: domain, code: -1, userInfo: nil))
+            return
         }
+        let startLine = selectionTrail.end.line + 1
+        convert(
+            json: json,
+            to: .class, // TODO: support config
+            in: invocation.buffer,
+            at: startLine,
+            conformTo: .mappable
+        )
         
         completionHandler(nil)
     }

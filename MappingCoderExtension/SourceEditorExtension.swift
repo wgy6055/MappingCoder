@@ -8,6 +8,13 @@
 import Foundation
 import XcodeKit
 
+let domain = "com.wgy.MappingCoder.error"
+let paseJSONFailed =
+"""
+Fail to parse JSON.\
+Please select JSON from source editor and try again. 🚨
+"""
+
 class SourceEditorExtension: NSObject, XCSourceEditorExtension {
     
     /*
