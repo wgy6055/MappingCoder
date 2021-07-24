@@ -100,7 +100,7 @@ func convert(
 
     let properties = json.map {
         PropertyDeclaration(
-            name: $0, // TODO: camelCase
+            name: $0.camelCase,
             jsonValue: $1,
             keyword: protocolType == .mappable ? .var : .let,
             isOptional: false // TODO: support config
@@ -115,7 +115,7 @@ func convert(
         lines.append("\(classIndent)\(modelType == .class ? "required " : "")init(map: Map) throws {")
         lines += json.keys.map {
             TryMapValueExpression(
-                name: $0, // TODO: camelCase
+                name: $0.camelCase,
                 key: $0,
                 isOptional: false // TODO: support config
             )
