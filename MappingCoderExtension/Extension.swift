@@ -43,6 +43,17 @@ extension String {
         }
         return (try? JSONSerialization.jsonObject(with: data)) as? [String : Any]
     }
+
+    var fullRange: NSRange {
+        NSRange(startIndex..., in: self)
+    }
+
+    var endWithID: Bool {
+        guard let regex = try? NSRegularExpression(pattern: "^\\w*(Id|ID|id)$") else {
+            return false
+        }
+        return regex.firstMatch(in: self, range: fullRange) != nil
+    }
 }
 
 extension NSNumber {

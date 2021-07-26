@@ -31,7 +31,10 @@ struct PropertyDeclaration {
         self.keyword = keyword
         self.isOptional = isOptional
         self.name = name
-        (type, nestedJSONValue) = valueType(of: jsonValue)
+        (type, nestedJSONValue) = valueType(
+            of: jsonValue,
+            propertyName: name
+        )
     }
 }
 
@@ -43,14 +46,22 @@ extension PropertyDeclaration: CustomStringConvertible {
     }
 }
 
-fileprivate func valueType(of value: Any) -> (String, [String : Any]?) {
+fileprivate func valueType(
+    of value: Any,
+    propertyName: String
+) -> (String, [String : Any]?) {
+
     switch value {
     case let number as NSNumber:
-        return (number.valueType, nil)
+        var type = number.valueType
+        if type == "Int", propertyName.endWithID {
+            type = "Int64"
+        }
+        return (type, nil)
     case _ as String:
         return ("String", nil)
     case let array as [Any]:
-        let result = valueType(of: array.first as Any)
+        let result = valueType(of: array.first as Any, propertyName: propertyName)
         return ("[\(result.0)]", result.1)
     case let json as [String : Any]:
         return ("<#NestedType#" + ">", json)

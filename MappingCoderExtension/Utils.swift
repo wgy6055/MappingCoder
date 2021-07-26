@@ -126,7 +126,7 @@ func convert(
 
     lines.append("\(classIndent)func mapping(map: Map) {")
     lines += json.keys.map {
-        MappingExpression(name: $0, key: $0, protocolType: protocolType)
+        MappingExpression(name: $0.camelCase, key: $0, protocolType: protocolType)
     }.sorted { $0.name < $1.name }.map { "\(funcIndent)\($0)" }
     lines.append("\(classIndent)}")
 
