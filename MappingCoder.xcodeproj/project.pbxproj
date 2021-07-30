@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,7 @@
 		9BB15B5B26A99D92009C7885 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5A26A99D92009C7885 /* Utils.swift */; };
 		9BB15B5D26AAC1E9009C7885 /* TryMapValueExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5C26AAC1E9009C7885 /* TryMapValueExpression.swift */; };
 		9BB15B5F26AACA8F009C7885 /* MappingExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5E26AACA8F009C7885 /* MappingExpression.swift */; };
+		9BF4CA0926B3FC08003C324D /* SwiftSemantics in Frameworks */ = {isa = PBXBuildFile; productRef = 9BF4CA0826B3FC08003C324D /* SwiftSemantics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BF4CA0926B3FC08003C324D /* SwiftSemantics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +184,9 @@
 				9BB15B2626A4914C009C7885 /* PBXTargetDependency */,
 			);
 			name = MappingCoder;
+			packageProductDependencies = (
+				9BF4CA0826B3FC08003C324D /* SwiftSemantics */,
+			);
 			productName = MappingCoder;
 			productReference = 9BB15AE926A44392009C7885 /* MappingCoder.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +235,9 @@
 				Base,
 			);
 			mainGroup = 9BB15AE026A44392009C7885;
+			packageReferences = (
+				9BF4CA0726B3FC08003C324D /* XCRemoteSwiftPackageReference "SwiftSemantics" */,
+			);
 			productRefGroup = 9BB15AEA26A44392009C7885 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -539,6 +547,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9BF4CA0726B3FC08003C324D /* XCRemoteSwiftPackageReference "SwiftSemantics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:wgy6055/SwiftSemantics.git";
+			requirement = {
+				branch = feature/mapping;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9BF4CA0826B3FC08003C324D /* SwiftSemantics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BF4CA0726B3FC08003C324D /* XCRemoteSwiftPackageReference "SwiftSemantics" */;
+			productName = SwiftSemantics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9BB15AE126A44392009C7885 /* Project object */;
 }
