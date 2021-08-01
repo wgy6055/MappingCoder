@@ -54,6 +54,29 @@ extension String {
         }
         return regex.firstMatch(in: self, range: fullRange) != nil
     }
+
+    var trimmed: String {
+        let startIndex = firstIndex(where: { !$0.isWhitespace }) ?? self.startIndex
+        let endIndex = lastIndex(where: { !$0.isWhitespace }) ?? self.endIndex
+        return String(self[startIndex...endIndex])
+    }
+
+    var unindented: String {
+        let lines = split(separator: "\n", omittingEmptySubsequences: false)
+        guard lines.count > 1 else { return trimmingCharacters(in: .whitespaces) }
+
+        let indentation = lines.compactMap { $0.firstIndex(where: { !$0.isWhitespace })?.utf16Offset(in: $0) }
+            .min() ?? 0
+
+        return lines.map {
+            guard $0.count > indentation else { return String($0) }
+            return String($0.suffix($0.count - indentation))
+        }.joined(separator: "\n")
+    }
+
+    var asPlaceholder: String {
+        "<#\(self)#" + ">"
+    }
 }
 
 extension NSNumber {
@@ -82,6 +105,35 @@ extension XCSourceTextBuffer {
                 return
             }
             range.end = XCSourceTextPosition(line: range.end.line - 1, column: previousLine.count)
+        }
+    }
+
+    var joinedSelectedString: String {
+        guard let selections = selections as? [XCSourceTextRange],
+              let lines = lines as? [String] else {
+            return ""
+        }
+        return selections.reduce("") { string, range in
+            guard range.start.line <= range.end.line else {
+                return string
+            }
+            return string + lines.subString(from: range.start, to: range.end)
+        }
+    }
+
+    func commentSelections() {
+        selections.forEach { selection in
+            guard let range = selection as? XCSourceTextRange,
+                  range.start.line <= range.end.line else {
+                return
+            }
+            for i in (range.start.line...range.end.line) {
+                guard var line = lines[i] as? String else {
+                    return
+                }
+                line = "//" + line
+                lines.replaceObject(at: i, with: line)
+            }
         }
     }
 }
@@ -120,5 +172,35 @@ extension String {
         }
 
         return newString
+    }
+}
+
+extension Array where Element == String {
+
+    func subString(from: XCSourceTextPosition, to: XCSourceTextPosition) -> String {
+        let startLine = self[from.line]
+        if from.line == to.line {
+            return startLine.substring(from: from.column, to: to.column)
+        }
+        var substring = ""
+        let targetLines = Array(self[from.line...to.line])
+        for i in (0..<targetLines.count) {
+            let line = targetLines[i]
+            if i == 0 {
+                substring += line.substring(from: from.column)
+            } else if i == targetLines.count - 1 {
+                substring += line.substring(to: to.column)
+            } else {
+                substring += line
+            }
+        }
+        return substring
+    }
+}
+
+extension Collection {
+
+    func index(of index: Index) -> Int {
+        distance(from: startIndex, to: index)
     }
 }

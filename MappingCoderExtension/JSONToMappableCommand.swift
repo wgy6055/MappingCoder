@@ -24,7 +24,7 @@ class JSONToMappableCommand: NSObject, XCSourceEditorCommand {
                     domain: domain,
                     code: -1,
                     userInfo: [
-                        NSLocalizedDescriptionKey : paseJSONFailed
+                        NSLocalizedDescriptionKey : parseJSONFailed
                     ]
                 )
             )
@@ -34,7 +34,7 @@ class JSONToMappableCommand: NSObject, XCSourceEditorCommand {
             completionHandler(nil)
             return
         }
-        commentSelectios(in: invocation.buffer)
+        invocation.buffer.commentSelections()
 
         guard let selectionTrail = invocation.buffer.selections.lastObject as? XCSourceTextRange else {
             completionHandler(NSError(domain: domain, code: -1, userInfo: nil))

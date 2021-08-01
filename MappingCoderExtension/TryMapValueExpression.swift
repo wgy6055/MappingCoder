@@ -25,7 +25,7 @@ extension TryMapValueExpression: CustomStringConvertible {
     var description: String {
         var rightValue = "try? map.value(\"\(key)\")"
         if !isOptional {
-            rightValue = "(" + rightValue + ")" + " ?? <#defaultValue#" + ">"
+            rightValue = "(" + rightValue + ")" + " ?? " + "defaultValue".asPlaceholder
         }
         return "\(name) = \(rightValue)"
     }

@@ -23,7 +23,7 @@ class JSONToImmutableMappableCommand: NSObject,
                     domain: domain,
                     code: -1,
                     userInfo: [
-                        NSLocalizedDescriptionKey : paseJSONFailed
+                        NSLocalizedDescriptionKey : parseJSONFailed
                     ]
                 )
             )
@@ -33,7 +33,7 @@ class JSONToImmutableMappableCommand: NSObject,
             completionHandler(nil)
             return
         }
-        commentSelectios(in: invocation.buffer)
+        invocation.buffer.commentSelections()
 
         guard let selectionTrail = invocation.buffer.selections.lastObject as? XCSourceTextRange else {
             completionHandler(NSError(domain: domain, code: -1, userInfo: nil))

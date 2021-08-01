@@ -42,7 +42,7 @@ extension PropertyDeclaration: CustomStringConvertible {
 
     var description: String {
         let hasDefault = (!isOptional && keyword == .var)
-        return "\(keyword) \(name): \(type)\(isOptional ? "?" : "")\(hasDefault ? " = <#defaultValue#" + ">" : "")"
+        return "\(keyword) \(name): \(type)\(isOptional ? "?" : "")\(hasDefault ? " = " + "defaultValue".asPlaceholder : "")"
     }
 }
 
@@ -64,8 +64,8 @@ fileprivate func valueType(
         let result = valueType(of: array.first as Any, propertyName: propertyName)
         return ("[\(result.0)]", result.1)
     case let json as [String : Any]:
-        return ("<#NestedType#" + ">", json)
+        return ("NestedType".asPlaceholder, json)
     default:
-        return ("<#SomeType#" + ">", nil)
+        return ("SomeType".asPlaceholder, nil)
     }
 }

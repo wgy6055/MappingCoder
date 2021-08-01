@@ -3,19 +3,10 @@
     "pins": [
       {
         "package": "SwiftSyntax",
-        "repositoryURL": "https://github.com/apple/swift-syntax.git",
+        "repositoryURL": "git@github.com:apple/swift-syntax.git",
         "state": {
           "branch": "release/5.4",
           "revision": "d81b6a6dc2698a93dcc04304fb15a5446b5278a4",
-          "version": null
-        }
-      },
-      {
-        "package": "SwiftSemantics",
-        "repositoryURL": "git@github.com:wgy6055/SwiftSemantics.git",
-        "state": {
-          "branch": "feature/mapping",
-          "revision": "0e04a65dbff264b26da9afaa9cbc664c06b0cb73",
           "version": null
         }
       }

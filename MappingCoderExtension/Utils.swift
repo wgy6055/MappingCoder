@@ -11,7 +11,7 @@ import XcodeKit
 enum ProtocolType: String {
 
     case mappable = "Mappable"
-    case immutableMappable = "ImmuatableMappable"
+    case immutableMappable = "ImmutableMappable"
 }
 
 extension ProtocolType: CustomStringConvertible {
@@ -26,57 +26,7 @@ enum ModelType: String {
 }
 
 func json(from buffer: XCSourceTextBuffer) -> [String : Any]? {
-
-    let selections = buffer.selections
-    guard let lines = buffer.lines as? [String] else {
-        return nil
-    }
-    let jsonString = selections.reduce("") { string, selection in
-        guard let range = selection as? XCSourceTextRange,
-              range.start.line <= range.end.line else {
-            return string
-        }
-        func sourceCode(from: XCSourceTextPosition, to: XCSourceTextPosition) -> String {
-            let startLine = lines[from.line]
-            if from.line == to.line {
-                return startLine.substring(from: from.column, to: to.column)
-            }
-            var sourceCode = ""
-            let targetLines = Array(lines[from.line...to.line])
-            for i in (0..<targetLines.count) {
-                let line = targetLines[i]
-                if i == 0 {
-                    sourceCode += line.substring(from: from.column)
-                } else if i == targetLines.count - 1 {
-                    sourceCode += line.substring(to: to.column)
-                } else {
-                    sourceCode += line
-                }
-            }
-            return sourceCode
-        }
-        return string + sourceCode(from: range.start, to: range.end)
-    }
-
-    return jsonString.trimmingCharacters(in: .whitespacesAndNewlines).toJSONObject
-}
-
-func commentSelectios(in buffer: XCSourceTextBuffer) {
-
-    let selections = buffer.selections
-    selections.forEach { selection in
-        guard let range = selection as? XCSourceTextRange,
-              range.start.line <= range.end.line else {
-            return
-        }
-        for i in (range.start.line...range.end.line) {
-            guard var line = buffer.lines[i] as? String else {
-                return
-            }
-            line = "//" + line
-            buffer.lines.replaceObject(at: i, with: line)
-        }
-    }
+    buffer.joinedSelectedString.trimmingCharacters(in: .whitespacesAndNewlines).toJSONObject
 }
 
 func convert(
@@ -95,7 +45,7 @@ func convert(
     let funcIndent = classIndent.indent()
 
     var lines: [String] = [""]
-    lines.append("\(modelType) <#name#" + ">: \(protocolType) {")
+    lines.append("\(modelType) " + "name".asPlaceholder + ": \(protocolType) {")
     lines.append("")
 
     let properties = json.map {
