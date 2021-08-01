@@ -9,6 +9,7 @@
 - Convert JSON to Mappable
 - Convert JSON to ImmutableMappable
 - Auto Complete Mapping Methods
+- Support converting nested type
 - Use lower camel case for property names
 - Use Int64 for property named xxx(ID|Id|id)
 
