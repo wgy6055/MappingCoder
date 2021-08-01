@@ -15,7 +15,12 @@
 
 ## Usage
 
-Draging `MappingCoder.app` into `Applications` folder. Before usage, the host app needs to be run at least once. In `System Preferences > Extensions > Xcode Source Editor`, selecting `MappingCoder` to activate it.
+Draging `MappingCoder.app` into `Applications` folder. 
+
+> Before usage, the host app needs to be run at least once. 
+
+In `System Preferences > Extensions > Xcode Source Editor`, selecting `MappingCoder` to activate it.
+
 In Xcode, selecting JSON or Class/Struct Declaration. And choosing `Editor > MappingCoder > ...` to use.
 
 ## Examples
@@ -33,6 +38,8 @@ In Xcode, selecting JSON or Class/Struct Declaration. And choosing `Editor > Map
 </p>
 
 ### Auto Complete Mapping Methods
+
+Sometimes, there is no need to convert whole JSON to Swift code. So you can simply define properties and use `Auto Complete Mapping Methods` to generate `init(map:)` & `mapping(map:)` automatically. This feature is powered by [SwiftSyntax](https://github.com/apple/swift-syntax).
 
 <p align="center" >
   <img src="https://github.com/wgy6055/MappingCoder/raw/master/auto-complet-mapping-method.gif" title="auto-complet-mapping-method" float=left>
@@ -66,3 +73,8 @@ class <#name#>: Mappable {
 
 In Xcode, choosing `Editor > MappingCoder > Settings...` to open Settings.
 
+## Inspired By
+
+- [JSON-to-Swift-Converter](https://github.com/mrlegowatch/JSON-to-Swift-Converter)
+- [SwiftSyntax](https://github.com/apple/swift-syntax)
+- [SwiftSemantics](https://github.com/SwiftDocOrg/SwiftSemantics)
