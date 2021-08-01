@@ -2,7 +2,7 @@
   <img src="https://github.com/wgy6055/MappingCoder/raw/master/MappingCoder_Logo.png" title="logo" float=left>
 </p>
 
-🧑🏼‍💻 An Xcode source editor extension for [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) user to convert JSON into Swift code.
+🧑🏼‍💻 An Xcode Source Editor extension for [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) user to convert JSON into Swift code.
 
 ## Features
 
