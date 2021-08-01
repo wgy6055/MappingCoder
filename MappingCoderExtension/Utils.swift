@@ -74,7 +74,8 @@ func convert(
     }
     lines.append("")
 
-    lines.append("\(classIndent)func mapping(map: Map) {")
+    let isMutating = modelType == .struct && protocolType == .mappable
+    lines.append("\(classIndent)\(isMutating ? "mutating " : "")func mapping(map: Map) {")
     lines += json.keys.map {
         MappingExpression(name: $0.camelCase, key: $0, protocolType: protocolType)
     }.sorted { $0.name < $1.name }.map { "\(funcIndent)\($0)" }
