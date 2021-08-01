@@ -14,8 +14,10 @@
 
 ## Usage
 
-Before usage, the host app needs to be run at least once.
+Draging `MappingCoder.app` into `Applications` folder. Before usage, the host app needs to be run at least once. In `System Preferences > Extensions > Xcode Source Editor`, selecting `MappingCoder` to activate it.
 In Xcode, selecting JSON or Class/Struct Declaration. And choosing `Editor > MappingCoder > ...` to use.
+
+## Examples
 
 ### Convert JSON to Mappable
 
