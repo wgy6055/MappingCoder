@@ -15,6 +15,7 @@
 
 ## Install
 
+- macOS 10.15+
 - Drag `MappingCoder.app` into `Applications` folder. 
 - Open it. The extension will be installed on Xcode when the app is opened for the first time.
 - In `System Preferences > Extensions > Xcode Source Editor`, selecting `MappingCoder` to activate it.
