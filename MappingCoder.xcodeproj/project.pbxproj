@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B10829E26B7C078006EEE04 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10829D26B7C078006EEE04 /* Settings.swift */; };
+		9B10829F26B7C078006EEE04 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10829D26B7C078006EEE04 /* Settings.swift */; };
+		9B1082A126B7C27F006EEE04 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1082A026B7C27F006EEE04 /* ModelType.swift */; };
+		9B1082A226B7C27F006EEE04 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1082A026B7C27F006EEE04 /* ModelType.swift */; };
+		9B1082A426B7E479006EEE04 /* SettingsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1082A326B7E479006EEE04 /* SettingsCommand.swift */; };
 		9BB15AED26A44392009C7885 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15AEC26A44392009C7885 /* AppDelegate.swift */; };
 		9BB15AEF26A44392009C7885 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15AEE26A44392009C7885 /* ViewController.swift */; };
 		9BB15AF126A44393009C7885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB15AF026A44393009C7885 /* Assets.xcassets */; };
@@ -75,6 +80,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B10829D26B7C078006EEE04 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9B1082A026B7C27F006EEE04 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
+		9B1082A326B7E479006EEE04 /* SettingsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCommand.swift; sourceTree = "<group>"; };
 		9BB15AE926A44392009C7885 /* MappingCoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MappingCoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB15AEC26A44392009C7885 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BB15AEE26A44392009C7885 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,9 +138,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B10829C26B7C064006EEE04 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				9B10829D26B7C078006EEE04 /* Settings.swift */,
+				9B1082A026B7C27F006EEE04 /* ModelType.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		9BB15AE026A44392009C7885 = {
 			isa = PBXGroup;
 			children = (
+				9B10829C26B7C064006EEE04 /* Shared */,
 				9BB15AEB26A44392009C7885 /* MappingCoder */,
 				9BB15B1E26A4914C009C7885 /* MappingCoderExtension */,
 				9BB15B1926A4914C009C7885 /* Frameworks */,
@@ -179,6 +197,7 @@
 				9BB15B2126A4914C009C7885 /* JSONToMappableCommand.swift */,
 				9BB15B5626A98D6A009C7885 /* JSONToImmutableMappableCommand.swift */,
 				9BF4CA0A26B3FD7E003C324D /* AutoCompleteCommand.swift */,
+				9B1082A326B7E479006EEE04 /* SettingsCommand.swift */,
 				9BED386F26B6A285009383EB /* Visitor.swift */,
 				9BED386D26B6A263009383EB /* Rewriter.swift */,
 				9BED386526B6A08A009383EB /* SwiftSyntax+Extension.swift */,
@@ -308,6 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B10829E26B7C078006EEE04 /* Settings.swift in Sources */,
+				9B1082A126B7C27F006EEE04 /* ModelType.swift in Sources */,
 				9BB15AEF26A44392009C7885 /* ViewController.swift in Sources */,
 				9BB15AED26A44392009C7885 /* AppDelegate.swift in Sources */,
 			);
@@ -318,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB15B5D26AAC1E9009C7885 /* TryMapValueExpression.swift in Sources */,
+				9B1082A226B7C27F006EEE04 /* ModelType.swift in Sources */,
 				9BB15B5726A98D6A009C7885 /* JSONToImmutableMappableCommand.swift in Sources */,
 				9BED386826B6A0AD009383EB /* Class.swift in Sources */,
 				9BB15B3126A52145009C7885 /* Extension.swift in Sources */,
@@ -327,6 +349,7 @@
 				9BED386626B6A08A009383EB /* SwiftSyntax+Extension.swift in Sources */,
 				9BED386426B6A052009383EB /* ExpressibleBySyntax.swift in Sources */,
 				9BB15B5F26AACA8F009C7885 /* MappingExpression.swift in Sources */,
+				9B1082A426B7E479006EEE04 /* SettingsCommand.swift in Sources */,
 				9BB15B5B26A99D92009C7885 /* Utils.swift in Sources */,
 				9BB15B5926A99207009C7885 /* PropertyDeclaration.swift in Sources */,
 				9BED386E26B6A263009383EB /* Rewriter.swift in Sources */,
@@ -335,6 +358,7 @@
 				9BB15B2026A4914C009C7885 /* SourceEditorExtension.swift in Sources */,
 				9BED387026B6A285009383EB /* Visitor.swift in Sources */,
 				9BB15B2226A4914C009C7885 /* JSONToMappableCommand.swift in Sources */,
+				9B10829F26B7C078006EEE04 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +515,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wgy.MappingCoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -513,6 +538,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wgy.MappingCoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -533,6 +559,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wgy.MappingCoder.MappingCoderExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -554,6 +581,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wgy.MappingCoder.MappingCoderExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

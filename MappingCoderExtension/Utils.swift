@@ -19,12 +19,6 @@ extension ProtocolType: CustomStringConvertible {
     var description: String { rawValue }
 }
 
-enum ModelType: String {
-
-    case `class`
-    case `struct`
-}
-
 func json(from buffer: XCSourceTextBuffer) -> [String : Any]? {
     buffer.joinedSelectedString.trimmingCharacters(in: .whitespacesAndNewlines).toJSONObject
 }
@@ -43,6 +37,7 @@ func convert(
     )
     let classIndent = fileIndent.indent()
     let funcIndent = classIndent.indent()
+    let optional = Settings().optional
 
     var lines: [String] = [""]
     lines.append("\(modelType) " + "name".asPlaceholder + ": \(protocolType) {")
@@ -53,7 +48,7 @@ func convert(
             name: $0.camelCase,
             jsonValue: $1,
             keyword: protocolType == .mappable ? .var : .let,
-            isOptional: false // TODO: support config
+            isOptional: optional
         )
     }.sorted { $0.name < $1.name }
     lines += properties.map { "\(classIndent)\($0)" }
@@ -67,7 +62,7 @@ func convert(
             TryMapValueExpression(
                 name: $0.camelCase,
                 key: $0,
-                isOptional: false // TODO: support config
+                isOptional: optional
             )
         }.sorted { $0.name < $1.name }.map { "\(funcIndent)\($0)" }
         lines.append("\(classIndent)}")

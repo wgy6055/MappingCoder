@@ -43,7 +43,7 @@ class JSONToMappableCommand: NSObject, XCSourceEditorCommand {
         let startLine = selectionTrail.end.line + 1
         convert(
             json: json,
-            to: .class, // TODO: support config
+            to: Settings().modelType,
             in: invocation.buffer,
             at: startLine,
             conformTo: .mappable

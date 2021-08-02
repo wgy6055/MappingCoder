@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>TeamIdentifierPrefix</key>
+	<string>$(TeamIdentifierPrefix)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -36,22 +38,30 @@
 					<key>XCSourceEditorCommandName</key>
 					<string>JSON to Mappable</string>
 				</dict>
-                <dict>
-                    <key>XCSourceEditorCommandClassName</key>
-                    <string>$(PRODUCT_MODULE_NAME).JSONToImmutableMappableCommand</string>
-                    <key>XCSourceEditorCommandIdentifier</key>
-                    <string>$(PRODUCT_BUNDLE_IDENTIFIER).JSONToImmutableMappableCommand</string>
-                    <key>XCSourceEditorCommandName</key>
-                    <string>JSON to ImmutableMappable</string>
-                </dict>
-                <dict>
-                    <key>XCSourceEditorCommandClassName</key>
-                    <string>$(PRODUCT_MODULE_NAME).AutoCompleteCommand</string>
-                    <key>XCSourceEditorCommandIdentifier</key>
-                    <string>$(PRODUCT_BUNDLE_IDENTIFIER).AutoCompleteCommand</string>
-                    <key>XCSourceEditorCommandName</key>
-                    <string>Auto Complete Mapping Methods</string>
-                </dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).JSONToImmutableMappableCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).JSONToImmutableMappableCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>JSON to ImmutableMappable</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).AutoCompleteCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).AutoCompleteCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Auto Complete Mapping Methods</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SettingsCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).SettingsCommand</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>Settings...</string>
+				</dict>
 			</array>
 			<key>XCSourceEditorExtensionPrincipalClass</key>
 			<string>$(PRODUCT_MODULE_NAME).SourceEditorExtension</string>
