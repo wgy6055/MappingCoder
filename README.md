@@ -2,6 +2,12 @@
   <img src="MappingCoder_Logo.png" title="logo" float=left>
 </p>
 
+[![Platform](https://img.shields.io/badge/platform-macos-brightgreen)](https://img.shields.io/badge/platform-macos-brightgreen)
+[![Platform](https://img.shields.io/badge/macos-10.15-brightgreen)](https://img.shields.io/badge/macos-10.15-brightgreen)
+[![GitHub license](https://img.shields.io/github/license/wgy6055/MappingCoder)](https://github.com/wgy6055/MappingCoder/blob/master/LICENSE)
+[![Swift version](https://swift.org/)](https://img.shields.io/badge/Swift-5.0-orange)
+
+
 🧑🏼‍💻 An Xcode Source Editor extension for [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) user to convert JSON into Swift code.
 
 ## Features
