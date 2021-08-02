@@ -9,7 +9,7 @@
 
 [English](README.md) | 中文
 
-🧑🏼‍💻 为 [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) 提供 JSON 转 Swift Model 的 Xcode 插件。
+🧑🏼‍💻 为 [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) 使用者提供 JSON 转 Swift Model 的 Xcode 插件。
 
 ## 功能
 
