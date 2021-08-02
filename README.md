@@ -15,7 +15,7 @@
 
 ## Usage
 
-Draging `MappingCoder.app` into `Applications` folder. 
+Dragging `MappingCoder.app` into `Applications` folder. 
 
 > Before usage, the host app needs to be run at least once. 
 
