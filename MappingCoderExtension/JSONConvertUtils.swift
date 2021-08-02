@@ -8,17 +8,6 @@
 import Foundation
 import XcodeKit
 
-enum ProtocolType: String {
-
-    case mappable = "Mappable"
-    case immutableMappable = "ImmutableMappable"
-}
-
-extension ProtocolType: CustomStringConvertible {
-
-    var description: String { rawValue }
-}
-
 func json(from buffer: XCSourceTextBuffer) -> [String : Any]? {
     buffer.joinedSelectedString.trimmingCharacters(in: .whitespacesAndNewlines).toJSONObject
 }

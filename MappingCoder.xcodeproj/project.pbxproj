@@ -22,13 +22,15 @@
 		9BB15B2726A4914C009C7885 /* MappingCoderExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9BB15B1826A4914C009C7885 /* MappingCoderExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9BB15B2D26A4923A009C7885 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB15B2C26A4923A009C7885 /* XcodeKit.framework */; };
 		9BB15B2F26A4924A009C7885 /* XcodeKit.framework in Embed Framework */ = {isa = PBXBuildFile; fileRef = 9BB15B2C26A4923A009C7885 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9BB15B3126A52145009C7885 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B3026A52145009C7885 /* Extension.swift */; };
+		9BB15B3126A52145009C7885 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B3026A52145009C7885 /* Foundation+Extension.swift */; };
 		9BB15B3326A5DCE0009C7885 /* Indentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B3226A5DCE0009C7885 /* Indentation.swift */; };
 		9BB15B5726A98D6A009C7885 /* JSONToImmutableMappableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5626A98D6A009C7885 /* JSONToImmutableMappableCommand.swift */; };
 		9BB15B5926A99207009C7885 /* PropertyDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5826A99207009C7885 /* PropertyDeclaration.swift */; };
-		9BB15B5B26A99D92009C7885 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5A26A99D92009C7885 /* Utils.swift */; };
+		9BB15B5B26A99D92009C7885 /* JSONConvertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5A26A99D92009C7885 /* JSONConvertUtils.swift */; };
 		9BB15B5D26AAC1E9009C7885 /* TryMapValueExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5C26AAC1E9009C7885 /* TryMapValueExpression.swift */; };
 		9BB15B5F26AACA8F009C7885 /* MappingExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5E26AACA8F009C7885 /* MappingExpression.swift */; };
+		9BC4FB2F26B82388004B31DA /* XcodeKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC4FB2E26B82388004B31DA /* XcodeKit+Extension.swift */; };
+		9BC4FB3126B823E2004B31DA /* ProtocolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC4FB3026B823E2004B31DA /* ProtocolType.swift */; };
 		9BED385C26B436CF009383EB /* SwiftSyntax in Frameworks */ = {isa = PBXBuildFile; productRef = 9BED385B26B436CF009383EB /* SwiftSyntax */; };
 		9BED385E26B436CF009383EB /* SwiftSyntaxBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = 9BED385D26B436CF009383EB /* SwiftSyntaxBuilder */; };
 		9BED386026B43835009383EB /* lib_InternalSwiftSyntaxParser.dylib in Embed Framework */ = {isa = PBXBuildFile; fileRef = 9BED385F26B43835009383EB /* lib_InternalSwiftSyntaxParser.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -97,13 +99,15 @@
 		9BB15B2326A4914C009C7885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB15B2426A4914C009C7885 /* MappingCoderExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MappingCoderExtension.entitlements; sourceTree = "<group>"; };
 		9BB15B2C26A4923A009C7885 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
-		9BB15B3026A52145009C7885 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		9BB15B3026A52145009C7885 /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		9BB15B3226A5DCE0009C7885 /* Indentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indentation.swift; sourceTree = "<group>"; };
 		9BB15B5626A98D6A009C7885 /* JSONToImmutableMappableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONToImmutableMappableCommand.swift; sourceTree = "<group>"; };
 		9BB15B5826A99207009C7885 /* PropertyDeclaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDeclaration.swift; sourceTree = "<group>"; };
-		9BB15B5A26A99D92009C7885 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9BB15B5A26A99D92009C7885 /* JSONConvertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConvertUtils.swift; sourceTree = "<group>"; };
 		9BB15B5C26AAC1E9009C7885 /* TryMapValueExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryMapValueExpression.swift; sourceTree = "<group>"; };
 		9BB15B5E26AACA8F009C7885 /* MappingExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingExpression.swift; sourceTree = "<group>"; };
+		9BC4FB2E26B82388004B31DA /* XcodeKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XcodeKit+Extension.swift"; sourceTree = "<group>"; };
+		9BC4FB3026B823E2004B31DA /* ProtocolType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolType.swift; sourceTree = "<group>"; };
 		9BED385F26B43835009383EB /* lib_InternalSwiftSyntaxParser.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = lib_InternalSwiftSyntaxParser.dylib; sourceTree = "<group>"; };
 		9BED386126B6A003009383EB /* Structure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structure.swift; sourceTree = "<group>"; };
 		9BED386326B6A052009383EB /* ExpressibleBySyntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleBySyntax.swift; sourceTree = "<group>"; };
@@ -193,29 +197,63 @@
 		9BB15B1E26A4914C009C7885 /* MappingCoderExtension */ = {
 			isa = PBXGroup;
 			children = (
+				9BC4FB3226B82421004B31DA /* Syntax */,
+				9BC4FB2D26B8236F004B31DA /* Extensions */,
+				9BC4FB2C26B822F6004B31DA /* Models */,
+				9BC4FB2B26B82294004B31DA /* Commands */,
 				9BB15B1F26A4914C009C7885 /* SourceEditorExtension.swift */,
+				9BB15B5A26A99D92009C7885 /* JSONConvertUtils.swift */,
+				9BB15B2326A4914C009C7885 /* Info.plist */,
+				9BB15B2426A4914C009C7885 /* MappingCoderExtension.entitlements */,
+			);
+			path = MappingCoderExtension;
+			sourceTree = "<group>";
+		};
+		9BC4FB2B26B82294004B31DA /* Commands */ = {
+			isa = PBXGroup;
+			children = (
 				9BB15B2126A4914C009C7885 /* JSONToMappableCommand.swift */,
 				9BB15B5626A98D6A009C7885 /* JSONToImmutableMappableCommand.swift */,
 				9BF4CA0A26B3FD7E003C324D /* AutoCompleteCommand.swift */,
 				9B1082A326B7E479006EEE04 /* SettingsCommand.swift */,
-				9BED386F26B6A285009383EB /* Visitor.swift */,
-				9BED386D26B6A263009383EB /* Rewriter.swift */,
-				9BED386526B6A08A009383EB /* SwiftSyntax+Extension.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		9BC4FB2C26B822F6004B31DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				9BED386326B6A052009383EB /* ExpressibleBySyntax.swift */,
 				9BED386B26B6A13B009383EB /* TopLevelDeclaration.swift */,
 				9BED386126B6A003009383EB /* Structure.swift */,
 				9BED386726B6A0AD009383EB /* Class.swift */,
 				9BED386926B6A0F9009383EB /* Variable.swift */,
-				9BB15B5A26A99D92009C7885 /* Utils.swift */,
 				9BB15B5826A99207009C7885 /* PropertyDeclaration.swift */,
 				9BB15B5C26AAC1E9009C7885 /* TryMapValueExpression.swift */,
 				9BB15B5E26AACA8F009C7885 /* MappingExpression.swift */,
 				9BB15B3226A5DCE0009C7885 /* Indentation.swift */,
-				9BB15B3026A52145009C7885 /* Extension.swift */,
-				9BB15B2326A4914C009C7885 /* Info.plist */,
-				9BB15B2426A4914C009C7885 /* MappingCoderExtension.entitlements */,
+				9BC4FB3026B823E2004B31DA /* ProtocolType.swift */,
 			);
-			path = MappingCoderExtension;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9BC4FB2D26B8236F004B31DA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9BB15B3026A52145009C7885 /* Foundation+Extension.swift */,
+				9BC4FB2E26B82388004B31DA /* XcodeKit+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9BC4FB3226B82421004B31DA /* Syntax */ = {
+			isa = PBXGroup;
+			children = (
+				9BED386F26B6A285009383EB /* Visitor.swift */,
+				9BED386D26B6A263009383EB /* Rewriter.swift */,
+				9BED386526B6A08A009383EB /* SwiftSyntax+Extension.swift */,
+			);
+			path = Syntax;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,11 +376,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC4FB2F26B82388004B31DA /* XcodeKit+Extension.swift in Sources */,
 				9BB15B5D26AAC1E9009C7885 /* TryMapValueExpression.swift in Sources */,
 				9B1082A226B7C27F006EEE04 /* ModelType.swift in Sources */,
 				9BB15B5726A98D6A009C7885 /* JSONToImmutableMappableCommand.swift in Sources */,
 				9BED386826B6A0AD009383EB /* Class.swift in Sources */,
-				9BB15B3126A52145009C7885 /* Extension.swift in Sources */,
+				9BB15B3126A52145009C7885 /* Foundation+Extension.swift in Sources */,
 				9BED386A26B6A0F9009383EB /* Variable.swift in Sources */,
 				9BED386C26B6A13B009383EB /* TopLevelDeclaration.swift in Sources */,
 				9BB15B3326A5DCE0009C7885 /* Indentation.swift in Sources */,
@@ -350,7 +389,7 @@
 				9BED386426B6A052009383EB /* ExpressibleBySyntax.swift in Sources */,
 				9BB15B5F26AACA8F009C7885 /* MappingExpression.swift in Sources */,
 				9B1082A426B7E479006EEE04 /* SettingsCommand.swift in Sources */,
-				9BB15B5B26A99D92009C7885 /* Utils.swift in Sources */,
+				9BB15B5B26A99D92009C7885 /* JSONConvertUtils.swift in Sources */,
 				9BB15B5926A99207009C7885 /* PropertyDeclaration.swift in Sources */,
 				9BED386E26B6A263009383EB /* Rewriter.swift in Sources */,
 				9BF4CA0B26B3FD7E003C324D /* AutoCompleteCommand.swift in Sources */,
@@ -358,6 +397,7 @@
 				9BB15B2026A4914C009C7885 /* SourceEditorExtension.swift in Sources */,
 				9BED387026B6A285009383EB /* Visitor.swift in Sources */,
 				9BB15B2226A4914C009C7885 /* JSONToMappableCommand.swift in Sources */,
+				9BC4FB3126B823E2004B31DA /* ProtocolType.swift in Sources */,
 				9B10829F26B7C078006EEE04 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -490,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -515,7 +555,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wgy.MappingCoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -538,7 +578,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wgy.MappingCoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -559,7 +599,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wgy.MappingCoder.MappingCoderExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -581,7 +621,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wgy.MappingCoder.MappingCoderExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
