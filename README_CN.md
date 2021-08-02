@@ -7,61 +7,62 @@
 [![GitHub license](https://img.shields.io/github/license/wgy6055/MappingCoder)](https://github.com/wgy6055/MappingCoder/blob/master/LICENSE)
 [![Swift version](https://swift.org/)](https://img.shields.io/badge/Swift-5.0-orange)
 
-English | [中文](README_CN.md)
+[English](README.md) | 中文
 
-🧑🏼‍💻 An Xcode Source Editor extension for [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) user to convert JSON into Swift code.
+🧑🏼‍💻 为 [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) 提供 JSON 转 Swift Model 的 Xcode 插件。
 
-## Features
+## 功能
 
-- Convert JSON to `Mappable`
-- Convert JSON to `ImmutableMappable`
-- Auto Complete Mapping Methods
-- Support converting nested type
-- Use lower camel case for property names
-- Use `Int64` for property named `xxx(ID|Id|id)`
+- JSON 转 `Mappable`
+- JSON 转 `ImmutableMappable`
+- 自动补全 `mapping` 等方法
+- 支持内嵌结构
+- 自动生成符合小驼峰命名规范的变量名
+- 自动对名为 `xxx(ID|Id|id)` 的变量使用 `Int64`
 
-## Install
+## 安装
 
 - macOS 10.15+
-- Drag `MappingCoder.app` into `Applications` folder. 
-- Open it. The extension will be installed on Xcode when the app is opened for the first time.
-- In `System Preferences > Extensions > Xcode Source Editor`, selecting `MappingCoder` to activate it.
+- 将 `MappingCoder.app` 拖到 `应用程序` 目录下
+- 运行 App。第一次运行会将插件安装到 Xcode 上。
+- 在 `系统设置 > 扩展 > Xcode Source Editor` 中，选中 `MappingCoder` 来将其激活。
 
-## Uninstall
+## 卸载
 
-Moving `MappingCoder.app` to Trash.
+将 `MappingCoder.app` 移入 `垃圾桶`。
 
-> Killing Xcode if there is a pop up showing "some of its extensions are in use".
+> 如果出现“扩展正在被使用”的弹窗，可以尝试退出 Xcode 进程。
 
-## Usage
+## 使用方法
 
-In Xcode, selecting JSON or Class/Struct Declaration. And choosing `Editor > MappingCoder > ...` to use.
+在 Xcode 中，在源码编辑区域选中 JSON 或 Class/Struct 的定义代码。点击 `Editor > MappingCoder > ...` 来运行。
 
-## Examples
+## 示例
 
-### Convert JSON to Mappable
+### JSON 转 Mappable
 
 <p align="center" >
   <img src="json-to-mappable.gif" title="json-to-mappable" float=left width=800>
 </p>
 
-### Convert JSON to ImmutableMappable
+### JSON 转 ImmutableMappable
 
 <p align="center" >
   <img src="json-to-immutablemappable.gif" title="json-to-immutablemappable" float=left width=800>
 </p>
 
-### Auto Complete Mapping Methods
+### 自动补全 mapping 等方法
 
-Sometimes, there is no need to convert whole JSON to Swift code. So you can simply define properties and use `Auto Complete Mapping Methods` to generate `init(map:)` & `mapping(map:)` automatically. This feature is powered by [SwiftSyntax](https://github.com/apple/swift-syntax).
+有时我们并不需要将整个 JSON 都转成 Model。所以你可以只把 Model 内的属性定义好，然后执行 `Auto Complete Mapping Methods` 来自动生成 `init(map:)` 和 `mapping(map:)` 的代码。这个功能基于 [SwiftSyntax](https://github.com/apple/swift-syntax) 实现。
 
 <p align="center" >
   <img src="auto-complet-mapping-method.gif" title="auto-complet-mapping-method" float=left width=800>
 </p>
 
-### Use Lower Camel Case & Int64
+### 驼峰命名 & Int64
 
 `MappingCoder` names property using lower camel case automatically. And also, defines property named `xxx(ID|Id|id)` as `Int64`.
+`MappingCoder` 自动使用小驼峰命名法命名所有变量。而且，会将名为 `xxx(ID|Id|id)` 的变量类型定义为 `Int64`。
 
 ```swift
 //{
@@ -83,20 +84,20 @@ class <#name#>: Mappable {
 }
 ```
 
-## Settings
+## 设置
 
-In Xcode, choosing `Editor > MappingCoder > Settings...` to open Settings.
+在 Xcode 中，点击 `Editor > MappingCoder > Settings...` 来打开设置。
 
 <p align="left" >
   <img src="settings.png" title="settings" float=left width=400>
 </p>
 
-## Inspired By
+## 灵感源头
 
 - [JSON-to-Swift-Converter](https://github.com/mrlegowatch/JSON-to-Swift-Converter)
 - [SwiftSyntax](https://github.com/apple/swift-syntax)
 - [SwiftSemantics](https://github.com/SwiftDocOrg/SwiftSemantics)
 
-## License
+## 开源协议
 
 [MIT](LICENSE)
