@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="https://github.com/wgy6055/MappingCoder/raw/master/MappingCoder_Logo.png" title="logo" float=left>
+  <img src="MappingCoder_Logo.png" title="logo" float=left>
 </p>
 
 🧑🏼‍💻 An Xcode Source Editor extension for [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) user to convert JSON into Swift code.
@@ -13,13 +13,19 @@
 - Use lower camel case for property names
 - Use Int64 for property named xxx(ID|Id|id)
 
+## Install
+
+- Drag `MappingCoder.app` into `Applications` folder. 
+- Open it. The extension will be installed on Xcode when the app is opened for the first time.
+- In `System Preferences > Extensions > Xcode Source Editor`, selecting `MappingCoder` to activate it.
+
+## Uninstall
+
+Moving `MappingCoder.app` to Trash.
+
+> Killing Xcode if there is a pop up showing "some of its extensions are in use".
+
 ## Usage
-
-Dragging `MappingCoder.app` into `Applications` folder. 
-
-> Before usage, the host app needs to be run at least once. 
-
-In `System Preferences > Extensions > Xcode Source Editor`, selecting `MappingCoder` to activate it.
 
 In Xcode, selecting JSON or Class/Struct Declaration. And choosing `Editor > MappingCoder > ...` to use.
 
@@ -28,13 +34,13 @@ In Xcode, selecting JSON or Class/Struct Declaration. And choosing `Editor > Map
 ### Convert JSON to Mappable
 
 <p align="center" >
-  <img src="https://github.com/wgy6055/MappingCoder/raw/master/json-to-mappable.gif" title="json-to-mappable" float=left>
+  <img src="json-to-mappable.gif" title="json-to-mappable" float=left width=800>
 </p>
 
 ### Convert JSON to ImmutableMappable
 
 <p align="center" >
-  <img src="https://github.com/wgy6055/MappingCoder/raw/master/json-to-immutablemappable.gif" title="json-to-immutablemappable" float=left>
+  <img src="json-to-immutablemappable.gif" title="json-to-immutablemappable" float=left width=800>
 </p>
 
 ### Auto Complete Mapping Methods
@@ -42,7 +48,7 @@ In Xcode, selecting JSON or Class/Struct Declaration. And choosing `Editor > Map
 Sometimes, there is no need to convert whole JSON to Swift code. So you can simply define properties and use `Auto Complete Mapping Methods` to generate `init(map:)` & `mapping(map:)` automatically. This feature is powered by [SwiftSyntax](https://github.com/apple/swift-syntax).
 
 <p align="center" >
-  <img src="https://github.com/wgy6055/MappingCoder/raw/master/auto-complet-mapping-method.gif" title="auto-complet-mapping-method" float=left>
+  <img src="auto-complet-mapping-method.gif" title="auto-complet-mapping-method" float=left width=800>
 </p>
 
 ### Use Lower Camel Case & Int64
@@ -73,8 +79,16 @@ class <#name#>: Mappable {
 
 In Xcode, choosing `Editor > MappingCoder > Settings...` to open Settings.
 
+<p align="left" >
+  <img src="settings.png" title="settings" float=left width=400>
+</p>
+
 ## Inspired By
 
 - [JSON-to-Swift-Converter](https://github.com/mrlegowatch/JSON-to-Swift-Converter)
 - [SwiftSyntax](https://github.com/apple/swift-syntax)
 - [SwiftSemantics](https://github.com/SwiftDocOrg/SwiftSemantics)
+
+## License
+
+[MIT](LICENSE)
