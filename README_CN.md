@@ -4,8 +4,9 @@
 
 [![Platform](https://img.shields.io/badge/platform-macos-brightgreen)](https://img.shields.io/badge/platform-macos-brightgreen)
 [![Platform](https://img.shields.io/badge/macos-10.15-brightgreen)](https://img.shields.io/badge/macos-10.15-brightgreen)
-[![GitHub license](https://img.shields.io/github/license/wgy6055/MappingCoder)](https://github.com/wgy6055/MappingCoder/blob/master/LICENSE)
-[![Swift version](https://swift.org/)](https://img.shields.io/badge/Swift-5.0-orange)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/wgy6055/MappingCoder?color=brightgreen)
+[![GitHub license](https://img.shields.io/github/license/wgy6055/MappingCoder?color=brightgreen)](https://github.com/wgy6055/MappingCoder/blob/master/LICENSE)
+[![Swift version](https://img.shields.io/badge/swift-5.0-brightgreen)](https://swift.org/)
 
 [English](README.md) | 中文
 
