@@ -17,43 +17,9 @@ struct Variable {
 
     let isConstant: Bool
 
-    let lineComment: String?
+    var key: String
 
-    var key: String {
-        guard let match = attributeMatch else {
-            return name
-        }
-        let keyRange = match.range(withName: "key")
-        return lineComment?.substring(
-            from: keyRange.location,
-            to: keyRange.location + keyRange.length - 1
-        ) ?? name
-    }
-
-    var defaultValue: String {
-        guard let match = attributeMatch else {
-            return name
-        }
-        let defaultRange = match.range(withName: "defaultValue")
-        return lineComment?.substring(
-            from: defaultRange.location,
-            to: defaultRange.location + defaultRange.length - 1
-        ) ?? "defaultValue".asPlaceholder
-    }
-
-
-    private var attributeMatch: NSTextCheckingResult? {
-        guard let lineComment = lineComment,
-              let regex = try? NSRegularExpression(
-                pattern: "@map\\(\\s*key\\s*:\\s*(?<key>.+)\\s*,\\s*default\\s*:\\s*(?<defaultValue>(\\w|\"|\\.)*)\\s*\\)"
-              ) else {
-            return nil
-        }
-        return regex.firstMatch(
-            in: lineComment,
-            range: lineComment.fullRange
-        )
-    }
+    var defaultValue: String
 }
 
 extension Variable: ExpressibleBySyntax {
@@ -77,6 +43,7 @@ extension Variable: ExpressibleBySyntax {
         optional = node.typeAnnotation?.type.asProtocol(TypeSyntaxProtocol.self) is OptionalTypeSyntax
         isConstant = parent.letOrVarKeyword.text == "let" && node.initializer != nil
         // find a lineComment for variable
+        let lineComment: String?
         if let comment = parent.attributes?.first?.lineComment {
             lineComment = comment
         } else if let comment = parent.modifiers?.first?.lineComment {
@@ -85,6 +52,28 @@ extension Variable: ExpressibleBySyntax {
             lineComment = comment
         } else {
             lineComment = nil
+        }
+        guard let source = lineComment,
+              let tree = try? SyntaxParser.parse(source: source) else {
+            key = name
+            defaultValue = "defaultValue".asPlaceholder
+            return
+        }
+
+        let parser = AttributeParser()
+        parser.walk(tree)
+
+        if let key = parser.key,
+           !key.isEmpty {
+            self.key = key
+        } else {
+            key = name
+        }
+        if let defaultValue = parser.defaultValue,
+           !defaultValue.isEmpty {
+            self.defaultValue = defaultValue
+        } else {
+            defaultValue = "defaultValue".asPlaceholder
         }
     }
 }

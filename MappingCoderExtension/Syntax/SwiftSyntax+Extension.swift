@@ -181,7 +181,7 @@ extension SequenceExprSyntax {
                     operatorToken: SyntaxFactory.makeSpacedBinaryOperator("??", trailingTrivia: .space)
                 )))
                 builder.addElement(ExprSyntax(SyntaxFactory.makeEditorPlaceholderExpr(
-                    identifier: SyntaxFactory.makeIdentifier("defaultValue".asPlaceholder)
+                    identifier: SyntaxFactory.makeIdentifier(variable.defaultValue)
                 )))
             }
         }

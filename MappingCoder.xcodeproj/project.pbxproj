@@ -31,6 +31,7 @@
 		9BB15B5F26AACA8F009C7885 /* MappingExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB15B5E26AACA8F009C7885 /* MappingExpression.swift */; };
 		9BC4FB2F26B82388004B31DA /* XcodeKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC4FB2E26B82388004B31DA /* XcodeKit+Extension.swift */; };
 		9BC4FB3126B823E2004B31DA /* ProtocolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC4FB3026B823E2004B31DA /* ProtocolType.swift */; };
+		9BE2776A26BA879F00AB70E7 /* AttributeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2776926BA879F00AB70E7 /* AttributeParser.swift */; };
 		9BED385C26B436CF009383EB /* SwiftSyntax in Frameworks */ = {isa = PBXBuildFile; productRef = 9BED385B26B436CF009383EB /* SwiftSyntax */; };
 		9BED385E26B436CF009383EB /* SwiftSyntaxBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = 9BED385D26B436CF009383EB /* SwiftSyntaxBuilder */; };
 		9BED386026B43835009383EB /* lib_InternalSwiftSyntaxParser.dylib in Embed Framework */ = {isa = PBXBuildFile; fileRef = 9BED385F26B43835009383EB /* lib_InternalSwiftSyntaxParser.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -108,6 +109,7 @@
 		9BB15B5E26AACA8F009C7885 /* MappingExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingExpression.swift; sourceTree = "<group>"; };
 		9BC4FB2E26B82388004B31DA /* XcodeKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XcodeKit+Extension.swift"; sourceTree = "<group>"; };
 		9BC4FB3026B823E2004B31DA /* ProtocolType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolType.swift; sourceTree = "<group>"; };
+		9BE2776926BA879F00AB70E7 /* AttributeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeParser.swift; sourceTree = "<group>"; };
 		9BED385F26B43835009383EB /* lib_InternalSwiftSyntaxParser.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = lib_InternalSwiftSyntaxParser.dylib; sourceTree = "<group>"; };
 		9BED386126B6A003009383EB /* Structure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structure.swift; sourceTree = "<group>"; };
 		9BED386326B6A052009383EB /* ExpressibleBySyntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleBySyntax.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			children = (
 				9BED386F26B6A285009383EB /* Visitor.swift */,
 				9BED386D26B6A263009383EB /* Rewriter.swift */,
+				9BE2776926BA879F00AB70E7 /* AttributeParser.swift */,
 				9BED386526B6A08A009383EB /* SwiftSyntax+Extension.swift */,
 			);
 			path = Syntax;
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC4FB2F26B82388004B31DA /* XcodeKit+Extension.swift in Sources */,
+				9BE2776A26BA879F00AB70E7 /* AttributeParser.swift in Sources */,
 				9BB15B5D26AAC1E9009C7885 /* TryMapValueExpression.swift in Sources */,
 				9B1082A226B7C27F006EEE04 /* ModelType.swift in Sources */,
 				9BB15B5726A98D6A009C7885 /* JSONToImmutableMappableCommand.swift in Sources */,
