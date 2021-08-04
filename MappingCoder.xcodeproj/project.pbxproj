@@ -552,6 +552,7 @@
 				CODE_SIGN_ENTITLEMENTS = MappingCoder/MappingCoder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 83JLR2XBG3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MappingCoder/Info.plist;
@@ -576,6 +577,7 @@
 				CODE_SIGN_ENTITLEMENTS = MappingCoder/MappingCoder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 83JLR2XBG3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MappingCoder/Info.plist;
@@ -597,6 +599,7 @@
 				CODE_SIGN_ENTITLEMENTS = MappingCoderExtension/MappingCoderExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 83JLR2XBG3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MappingCoderExtension/Info.plist;
@@ -620,6 +623,7 @@
 				CODE_SIGN_ENTITLEMENTS = MappingCoderExtension/MappingCoderExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 83JLR2XBG3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MappingCoderExtension/Info.plist;
