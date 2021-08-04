@@ -17,6 +17,7 @@ English | [中文](README_CN.md)
 - Convert JSON to `Mappable`
 - Convert JSON to `ImmutableMappable`
 - Auto Complete Mapping Methods
+  - Custom mapping with attribute `@map`
 - Support converting nested type
 - Use lower camel case for property names
 - Use `Int64` for property named `xxx(ID|Id|id)`
@@ -54,10 +55,25 @@ In Xcode, selecting JSON or Class/Struct Declaration. And choosing `Editor > Map
 
 ### Auto Complete Mapping Methods
 
-Sometimes, there is no need to convert whole JSON to Swift code. So you can simply define properties and use `Auto Complete Mapping Methods` to generate `init(map:)` & `mapping(map:)` automatically. This feature is powered by [SwiftSyntax](https://github.com/apple/swift-syntax).
+Sometimes, there is no need to convert whole JSON to Swift code. So you can simply define properties and use `Auto Complete Mapping Methods` to generate `init(map:)` & `mapping(map:)`. If you want to customize the mapping, attribute `@map()` is provided to determine `key` & `default` for each property. 
+
+```swift
+// @map(key: String?, default: Any?)
+
+// @map(key: "all_skills", default: [])
+var skills: [Skill]
+// @map(key: "user-name", default: "")
+var name: String
+// @map(default: [:])
+var profile: [String : Any]
+// @map(key: "math score")
+var mathScore: Int
+```
+
+This feature is powered by [SwiftSyntax](https://github.com/apple/swift-syntax).
 
 <p align="center" >
-  <img src="auto-complet-mapping-method.gif" title="auto-complet-mapping-method" float=left width=800>
+  <img src="auto-complete-mapping-methods.gif" title="auto-complete-mapping-methods" float=left width=800>
 </p>
 
 ### Use Lower Camel Case & Int64
