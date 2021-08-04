@@ -12,6 +12,8 @@
 
 🧑🏼‍💻 为 [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) 使用者提供 JSON 转 Swift Model 的 Xcode 插件。
 
+⏬ [点击下载](https://github.com/wgy6055/MappingCoder/releases/download/v1.0.1/MappingCoder.zip)
+
 ## 功能
 
 - JSON 转 `Mappable`

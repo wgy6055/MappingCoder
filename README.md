@@ -12,6 +12,8 @@ English | [中文](README_CN.md)
 
 🧑🏼‍💻 An Xcode Source Editor extension for [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) user to convert JSON into Swift code.
 
+⏬ [Download](https://github.com/wgy6055/MappingCoder/releases/download/v1.0.1/MappingCoder.zip)
+
 ## Features
 
 - Convert JSON to `Mappable`
