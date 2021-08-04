@@ -710,7 +710,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="313" height="169"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Convert JSON to" translatesAutoresizingMaskIntoConstraints="NO" id="lPD-PI-xNT">
+                            <box fixedFrame="YES" title="Convert to" translatesAutoresizingMaskIntoConstraints="NO" id="lPD-PI-xNT">
                                 <rect key="frame" x="39" y="50" width="228" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="QPc-Ej-K2z">
