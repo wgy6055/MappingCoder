@@ -233,28 +233,38 @@ extension MemberDeclListItemSyntax {
     static func buildMappingFunc(
         modelType: ModelType,
         protocolType: ProtocolType,
+        isPublic: Bool,
         indentation: Indentation
     ) -> MemberDeclListItemSyntax {
 
         MemberDeclListItemSyntax { builder in
             builder.useDecl(DeclSyntax(FunctionDeclSyntax { builder in
-                if modelType == .struct && protocolType == .mappable {
+                let isMutating = modelType == .struct && protocolType == .mappable
+                var needSkipLine = true
+                if isPublic {
                     builder.addModifier(DeclModifierSyntax { builder in
-                        builder.useName(SyntaxFactory.makeIdentifier("mutating", leadingTrivia: .skipALine + .indent(from: indentation), trailingTrivia: .space))
+                        builder.useName(SyntaxFactory.makePublicKeyword(leadingTrivia: .skipALine + .indent(from: indentation), trailingTrivia: .space))
                     })
-                    builder.useFuncKeyword(
-                        SyntaxFactory.makeFuncKeyword(
-                            trailingTrivia: .space
-                        )
-                    )
-                } else {
-                    builder.useFuncKeyword(
-                        SyntaxFactory.makeFuncKeyword(
-                            leadingTrivia: .skipALine + .indent(from: indentation),
-                            trailingTrivia: .space
-                        )
-                    )
+                    needSkipLine = false
                 }
+                if isMutating {
+                    builder.addModifier(DeclModifierSyntax { builder in
+                        builder.useName(
+                            SyntaxFactory.makeIdentifier(
+                                "mutating",
+                                leadingTrivia: needSkipLine ? .skipALine + .indent(from: indentation) : .zero,
+                                trailingTrivia: .space
+                            )
+                        )
+                    })
+                    needSkipLine = false
+                }
+                builder.useFuncKeyword(
+                    SyntaxFactory.makeFuncKeyword(
+                        leadingTrivia: needSkipLine ? .skipALine + .indent(from: indentation) : .zero,
+                        trailingTrivia: .space
+                    )
+                )
                 builder.useIdentifier(SyntaxFactory.makeIdentifier("mapping"))
                 builder.useSignature(FunctionSignatureSyntax { builder in
                     builder.useInput(ParameterClauseSyntax { builder in
@@ -281,20 +291,35 @@ extension MemberDeclListItemSyntax {
     static func buildInitializer(
         modelType: ModelType,
         protocolType: ProtocolType,
+        isPublic: Bool,
         indentation: Indentation
     ) -> MemberDeclListItemSyntax {
 
         MemberDeclListItemSyntax({ builder in
             builder.useDecl(DeclSyntax(InitializerDeclSyntax({ builder in
-                if modelType == .class {
+                let isRequired = modelType == .class
+                var needSkipLine = true
+                if isRequired {
                     builder.addModifier(DeclModifierSyntax({ builder in
                         builder.useName(SyntaxFactory.makeIdentifier("required").withLeadingTrivia(
                             .skipALine + .indent(from: indentation)
                         ).withTrailingTrivia(.space))
                     }))
+                    needSkipLine = false
+                }
+                if isPublic {
+                    builder.addModifier(DeclModifierSyntax { builder in
+                        builder.useName(
+                            SyntaxFactory.makePublicKeyword(
+                                leadingTrivia: needSkipLine ? .skipALine + .indent(from: indentation) : .zero,
+                                trailingTrivia: .space
+                            )
+                        )
+                    })
+                    needSkipLine = false
                 }
                 builder.useInitKeyword(SyntaxFactory.makeInitKeyword(
-                    leadingTrivia: modelType == .class ? .zero : .skipALine + .indent(from: indentation)
+                    leadingTrivia: needSkipLine ? .skipALine + .indent(from: indentation) : .zero
                 ))
                 if protocolType == .mappable {
                     builder.useOptionalMark(SyntaxFactory.makePostfixQuestionMarkToken())
@@ -347,5 +372,12 @@ extension CodeBlockSyntax {
                 )
             )
         }
+    }
+}
+
+extension ModifierListSyntax {
+
+    var hasPublic: Bool {
+        contains { ["public", "open"].contains($0.name.text) }
     }
 }

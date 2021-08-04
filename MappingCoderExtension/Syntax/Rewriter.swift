@@ -16,6 +16,7 @@ class Rewriter: SyntaxRewriter {
     private var protocolType: ProtocolType? { topLevel.protocolType }
     private var variables: [Variable] { topLevel.variables }
     private var `operator`: String { protocolType == .mappable ? "<-" : ">>>" }
+    private var isPublic: Bool { topLevel.isPublic }
 
     private var useTabs: Bool
     private var indentationWidth: Int
@@ -92,8 +93,8 @@ class Rewriter: SyntaxRewriter {
         let initItemIndex = list.firstIndex {
             guard let initializer = $0.decl.asProtocol(DeclSyntaxProtocol.self)
                     as? InitializerDeclSyntax,
-                  initializer.isInitMap(modelType: modelType, protocolType: protocolType)
-            else {
+                  initializer.isInitMap(modelType: modelType, protocolType: protocolType),
+                  (isPublic ? (initializer.modifiers?.hasPublic ?? false) : true) else {
                 return false
             }
             return true
@@ -105,6 +106,7 @@ class Rewriter: SyntaxRewriter {
             initItem = MemberDeclListItemSyntax.buildInitializer(
                 modelType: modelType,
                 protocolType: protocolType,
+                isPublic: isPublic,
                 indentation: memberIndent
             )
         }
@@ -170,7 +172,8 @@ class Rewriter: SyntaxRewriter {
         let mappingItemIndex = list.firstIndex {
             guard let function = $0.decl.asProtocol(DeclSyntaxProtocol.self)
                     as? FunctionDeclSyntax,
-                  function.isMapping else {
+                  function.isMapping,
+                  (isPublic ? (function.modifiers?.hasPublic ?? false) : true ) else {
                 return false
             }
             return true
@@ -183,6 +186,7 @@ class Rewriter: SyntaxRewriter {
             mappingItem = MemberDeclListItemSyntax.buildMappingFunc(
                 modelType: modelType,
                 protocolType: protocolType,
+                isPublic: isPublic,
                 indentation: memberIndent
             )
         }

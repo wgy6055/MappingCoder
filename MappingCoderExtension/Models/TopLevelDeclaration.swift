@@ -13,4 +13,5 @@ protocol TopLevelDeclaration {
     var inheritance: [String] { get }
     var variables: [Variable] { get }
     var protocolType: ProtocolType? { get }
+    var isPublic: Bool { get }
 }

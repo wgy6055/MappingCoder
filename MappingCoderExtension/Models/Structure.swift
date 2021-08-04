@@ -13,6 +13,7 @@ struct Structure: TopLevelDeclaration {
     private(set) var name: String = ""
     private(set) var inheritance: [String] = []
     private(set) var variables: [Variable] = []
+    private(set) var isPublic: Bool = false
 
     var protocolType: ProtocolType? {
         inheritance.first {
@@ -28,6 +29,7 @@ extension Structure: ExpressibleBySyntax {
         inheritance = node.inheritanceClause?.inheritedTypeCollection.map {
             $0.typeName.description.trimmed
         } ?? []
+        isPublic = node.modifiers?.hasPublic ?? false
         node.members.members.forEach {
             $0.children.forEach {
                 guard let declaration = $0.asProtocol(DeclSyntaxProtocol.self) else {
