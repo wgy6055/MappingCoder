@@ -59,24 +59,59 @@
 
 有时我们并不需要将整个 JSON 都转成 Model。所以你可以只把 Model 内的属性定义好，然后执行 `Auto Complete Mapping Methods` 来自动生成 `init(map:)` 和 `mapping(map:)` 的代码。如果你想自定义映射关系，可以使用 `@map()` 关键字为每个属性指定 `key` 和 `default`。
 
-```swift
-// @map(key: String?, default: Any?)
+以下是 Swift 风格的 `@map` 方法定义。
 
-// @map(key: "all_skills", default: [])
-var skills: [Skill]
-// @map(key: "user-name", default: "")
-var name: String
-// @map(default: [:])
-var profile: [String : Any]
-// @map(key: "math score")
-var mathScore: Int
+```swift
+@map(key: String? = nil, default: Any? = nil)
+```
+
+你可以这样使用它。
+
+```swift
+// 输入你的类声明，并且在属性的行注释里使用 @map
+
+struct Person: ImmutableMappable {
+
+    // @map(key: "all_skills", default: [])
+    let skills: [Any]
+    // @map(key: "user-name", default: "")
+    let name: String
+    // @map(default: [:])
+    let profile: [String : Any]
+    // @map(key: "math score")
+    let mathScore: Int
+}
+
+// 执行 Auto Complete Mapping Methods
+
+struct Person: ImmutableMappable {
+
+    // @map(key: "all_skills", default: [])
+    let skills: [Any]
+    // @map(key: "user-name", default: "")
+    let name: String
+    // @map(default: [:])
+    let profile: [String : Any]
+    // @map(key: "math score")
+    let mathScore: Int
+
+    init(map: Map) throws {
+        skills = (try? map.value("all_skills")) ?? []
+        name = (try? map.value("user-name")) ?? ""
+        profile = (try? map.value("profile")) ?? [:]
+        mathScore = (try? map.value("math score")) ?? <#defaultValue#>
+    }
+
+    func mapping(map: Map) {
+        skills >>> map["all_skills"]
+        name >>> map["user-name"]
+        profile >>> map["profile"]
+        mathScore >>> map["math score"]
+    }
+}
 ```
 
 这个功能基于 [SwiftSyntax](https://github.com/apple/swift-syntax) 实现。
-
-<p align="center" >
-  <img src="auto-complete-mapping-methods.gif" title="auto-complete-mapping-methods" float=left width=800>
-</p>
 
 ### 驼峰命名 & Int64
 
