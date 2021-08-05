@@ -41,6 +41,19 @@ class AutoCompleteCommand: NSObject,
 
         visitor.walk(tree)
         let topLevels = visitor.topLevels
+        guard topLevels.count > 0 else {
+            completionHandler(
+                NSError(
+                    domain: domain,
+                    code: -1,
+                    userInfo: [
+                        NSLocalizedDescriptionKey : parseSyntaxFailed
+                    ]
+                )
+            )
+            return
+        }
+
         var result = Syntax(tree)
         topLevels.forEach {
             let rewriter = Rewriter(

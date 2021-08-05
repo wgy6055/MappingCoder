@@ -17,18 +17,10 @@ class SettingsCommand: NSObject,
         completionHandler: @escaping (Error?) -> Void
     ) {
 
-        if #available(macOS 10.15, *) {
-            NSWorkspace.shared.openApplication(
-                at: URL(fileURLWithPath: "/Applications/MappingCoder.app"),
-                configuration: NSWorkspace.OpenConfiguration()
-            )
-        } else {
-            NSWorkspace.shared.launchApplication(
-                withBundleIdentifier: "com.wgy.MappingCoder",
-                additionalEventParamDescriptor: nil,
-                launchIdentifier: nil
-            )
-        }
+        NSWorkspace.shared.openApplication(
+            at: URL(fileURLWithPath: "/Applications/MappingCoder.app"),
+            configuration: NSWorkspace.OpenConfiguration()
+        )
 
         completionHandler(nil)
     }
