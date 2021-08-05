@@ -59,24 +59,59 @@ In Xcode, selecting JSON or Class/Struct Declaration. And choosing `Editor > Map
 
 Sometimes, there is no need to convert whole JSON to Swift code. So you can simply define properties and use `Auto Complete Mapping Methods` to generate `init(map:)` & `mapping(map:)`. If you want to customize the mapping, attribute `@map()` is provided to determine `key` & `default` for each property. 
 
-```swift
-// @map(key: String?, default: Any?)
+Here is the declaration of `@map` in Swift Style.
 
-// @map(key: "all_skills", default: [])
-var skills: [Skill]
-// @map(key: "user-name", default: "")
-var name: String
-// @map(default: [:])
-var profile: [String : Any]
-// @map(key: "math score")
-var mathScore: Int
+```swift
+@map(key: String? = nil, default: Any? = nil)
+```
+
+You can use it like this.
+
+```swift
+// Typing your declaration with @map in line comment
+
+struct Person: ImmutableMappable {
+
+    // @map(key: "all_skills", default: [])
+    let skills: [Any]
+    // @map(key: "user-name", default: "")
+    let name: String
+    // @map(default: [:])
+    let profile: [String : Any]
+    // @map(key: "math score")
+    let mathScore: Int
+}
+
+// Run Auto Complete Mapping Methods
+
+struct Person: ImmutableMappable {
+
+    // @map(key: "all_skills", default: [])
+    let skills: [Any]
+    // @map(key: "user-name", default: "")
+    let name: String
+    // @map(default: [:])
+    let profile: [String : Any]
+    // @map(key: "math score")
+    let mathScore: Int
+
+    init(map: Map) throws {
+        skills = (try? map.value("all_skills")) ?? []
+        name = (try? map.value("user-name")) ?? ""
+        profile = (try? map.value("profile")) ?? [:]
+        mathScore = (try? map.value("math score")) ?? <#defaultValue#>
+    }
+
+    func mapping(map: Map) {
+        skills >>> map["all_skills"]
+        name >>> map["user-name"]
+        profile >>> map["profile"]
+        mathScore >>> map["math score"]
+    }
+}
 ```
 
 This feature is powered by [SwiftSyntax](https://github.com/apple/swift-syntax).
-
-<p align="center" >
-  <img src="auto-complete-mapping-methods.gif" title="auto-complete-mapping-methods" float=left width=800>
-</p>
 
 ### Use Lower Camel Case & Int64
 
