@@ -115,7 +115,6 @@ struct Person: ImmutableMappable {
 
 ### 驼峰命名 & Int64
 
-`MappingCoder` names property using lower camel case automatically. And also, defines property named `xxx(ID|Id|id)` as `Int64`.
 `MappingCoder` 自动使用小驼峰命名法命名所有变量。而且，会将名为 `xxx(ID|Id|id)` 的变量类型定义为 `Int64`。
 
 ```swift
