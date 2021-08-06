@@ -7,6 +7,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/wgy6055/MappingCoder?color=brightgreen)
 [![GitHub license](https://img.shields.io/github/license/wgy6055/MappingCoder?color=brightgreen)](https://github.com/wgy6055/MappingCoder/blob/master/LICENSE)
 [![Swift version](https://img.shields.io/badge/swift-5.0-brightgreen)](https://swift.org/)
+![GitHub all releases](https://img.shields.io/github/downloads/wgy6055/MappingCoder/total?color=brightgreen)
 
 English | [中文](README_CN.md)
 
